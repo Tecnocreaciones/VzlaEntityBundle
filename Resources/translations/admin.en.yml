@@ -1,0 +1,28 @@
+admin:
+    group:
+        vzla_entity: Venezuela
+    city: City
+    country: Country
+    municipality: Municipality
+    parish: Parish
+    region: Region
+    state: State
+    
+#Table show
+Description: Description
+Created At: Created At
+Updated At: Updated At
+Active: Active
+
+State: State
+Code: Code
+Municipality: Municipality
+Country: Country
+Region: Región
+
+#Breadcumbs
+"City List": City List
+"Country List": Country List
+"Municipality List": Municipality List
+"Parish List": Parish List
+"State List": State List

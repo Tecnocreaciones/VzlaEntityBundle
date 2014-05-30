@@ -1,0 +1,29 @@
+admin:
+    group:
+        vzla_entity: Venezuela
+    city: Ciudad
+    country: Pais
+    municipality: Municipio
+    parish: Parroquia
+    region: Región
+    state: Estado
+    
+#Table show
+Description: Descripción
+Created At: Creado el
+Updated At: Actualizado el
+Active: Activo
+
+State: Estado
+Code: Código
+Municipality: Municipio
+Country: Pais
+Region: Región
+
+#Breadcumbs
+"City List": Lista de ciudades
+"Country List": Lista de paises
+"Municipality List": Lista de municipios
+"Parish List": Lista de parroquias
+"Region List": Lista de regiones
+"State List": Lista de estados

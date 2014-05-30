@@ -1,0 +1,18 @@
+Tecnocreaciones\Vzla\EntityBundle\Entity\City:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [list,show,state]
+        description:
+            expose: true
+            groups: [list,show,state]
+        capital:
+            expose: true
+            groups: [list,show,state]
+        active:
+            expose: true
+            groups: [list,show,state]
+        state:
+            expose: true
+            groups: [list,show]

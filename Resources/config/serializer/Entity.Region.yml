@@ -1,0 +1,21 @@
+Tecnocreaciones\Vzla\EntityBundle\Entity\Region:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [list,show,country]
+        description:
+            expose: true
+            groups: [list,show,country]
+        code:
+            expose: true
+            groups: [list,show,country]
+        active:
+            expose: true
+            groups: [list,show,country]
+        createdAt:
+            expose: true
+            groups: [list,show]
+        updatedAt:
+            expose: true
+            groups: [list,show]
