@@ -21,7 +21,7 @@
         "tecnocreaciones/resource-bundle": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Tecnocreaciones\\Vzla\\FixturesBundle": "" }
+        "psr-0": { "Tecnocreaciones\\Vzla\\EntityBundle": "" }
     },
-    "target-dir": "Tecnocreaciones/Vzla/FixturesBundle"
+    "target-dir": "Tecnocreaciones/Vzla/EntityBundle"
 }
