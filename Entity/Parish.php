@@ -62,6 +62,13 @@ class Parish
     private $updatedAt;
     
     /**
+     * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\State
+     *
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\State", inversedBy="municipalities")
+     */
+    private $state;
+    
+    /**
      * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality
      * 
      * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality", inversedBy="parishes")
@@ -192,5 +199,28 @@ class Parish
     public function getMunicipality()
     {
         return $this->municipality;
+    }
+
+    /**
+     * Set state
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\State $state
+     * @return Parish
+     */
+    public function setState(\Tecnocreaciones\Vzla\EntityBundle\Entity\State $state = null)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return \Tecnocreaciones\Vzla\EntityBundle\Entity\State 
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 }

@@ -69,6 +69,8 @@ class Municipality
     private $updatedAt;
     
     /**
+     * Parroquias
+     * 
      * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish
      * 
      * @ORM\OneToMany(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish", mappedBy="municipality")
@@ -173,16 +175,6 @@ class Municipality
     }
 
     /**
-     * Get updatedAt
-     *
-     * @return \DateTime 
-     */
-    public function getupdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Set state
      *
      * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\State $state
@@ -236,5 +228,15 @@ class Municipality
     public function getParishes()
     {
         return $this->parishes;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

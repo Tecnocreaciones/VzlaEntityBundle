@@ -60,11 +60,44 @@ class City
     private $updatedAt;
 
     /**
+     * Estado
+     * 
      * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\State
-     *
      * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\State", inversedBy="cities")
      */
     private $state;
+    
+    /**
+     * Parroquia
+     * 
+     * @var Parish
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish")
+     */
+    private $parish;
+    
+    /**
+     * Municipio
+     * 
+     * @var Municipality
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality")
+     */
+    private $municipality;
+
+    /**
+     * Codigo de area
+     * 
+     * @var integer
+     * @ORM\Column(name="areaCode", type="integer")
+     */
+    private $areaCode;
+
+    /**
+     * Codigo postal
+     * 
+     * @var integer
+     * @ORM\Column(name="zipCode", type="integer")
+     */
+    private $zipCode;
 
 
     /**
@@ -213,5 +246,97 @@ class City
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Set areaCode
+     *
+     * @param integer $areaCode
+     * @return City
+     */
+    public function setAreaCode($areaCode)
+    {
+        $this->areaCode = $areaCode;
+
+        return $this;
+    }
+
+    /**
+     * Get areaCode
+     *
+     * @return integer 
+     */
+    public function getAreaCode()
+    {
+        return $this->areaCode;
+    }
+
+    /**
+     * Set zipCode
+     *
+     * @param integer $zipCode
+     * @return City
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipCode
+     *
+     * @return integer 
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * Set parish
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish
+     * @return City
+     */
+    public function setParish(\Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish = null)
+    {
+        $this->parish = $parish;
+
+        return $this;
+    }
+
+    /**
+     * Get parish
+     *
+     * @return \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish 
+     */
+    public function getParish()
+    {
+        return $this->parish;
+    }
+
+    /**
+     * Set municipality
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality $municipality
+     * @return City
+     */
+    public function setMunicipality(\Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality $municipality = null)
+    {
+        $this->municipality = $municipality;
+
+        return $this;
+    }
+
+    /**
+     * Get municipality
+     *
+     * @return \Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality 
+     */
+    public function getMunicipality()
+    {
+        return $this->municipality;
     }
 }
