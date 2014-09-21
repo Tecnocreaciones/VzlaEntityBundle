@@ -79,7 +79,7 @@ class City
      * Municipio
      * 
      * @var Municipality
-     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality")
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality",cascade={"persist"})
      */
     private $municipality;
 
@@ -87,7 +87,7 @@ class City
      * Codigo de area
      * 
      * @var integer
-     * @ORM\Column(name="areaCode", type="integer")
+     * @ORM\Column(name="areaCode", type="integer",nullable=true)
      */
     private $areaCode;
 
@@ -95,7 +95,7 @@ class City
      * Codigo postal
      * 
      * @var integer
-     * @ORM\Column(name="zipCode", type="integer")
+     * @ORM\Column(name="zipCode", type="integer",nullable=true)
      */
     private $zipCode;
 

@@ -71,7 +71,7 @@ class Parish
     /**
      * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality
      * 
-     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality", inversedBy="parishes")
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality", inversedBy="parishes",cascade={"persist"})
      */
     private $municipality;
     
