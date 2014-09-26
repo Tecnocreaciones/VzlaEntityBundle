@@ -19,4 +19,27 @@ namespace Tecnocreaciones\Vzla\EntityBundle\Repository;
  */
 class MunicipalityRepository extends EntityRepository
 {
+    function findMunicipalitiesByState($state)
+    {
+        $qb = $this->createQueryBuilder('m');
+        $qb
+                ->innerJoin('m.state', 's')
+                ->andWhere('m.active = 1')
+                ->andWhere('s.id = :state')
+                ->setParameter('state', $state)
+                ;
+        return $this->findQueryMunicipalitiesByState($state)->getQuery()->getResult();
+    }
+    
+    function findQueryMunicipalitiesByState($state)
+    {
+        $qb = $this->createQueryBuilder('m');
+        $qb
+                ->innerJoin('m.state', 's')
+                ->andWhere('m.active = 1')
+                ->andWhere('s.id = :state')
+                ->setParameter('state', $state)
+                ;
+        return $qb;
+    }
 }

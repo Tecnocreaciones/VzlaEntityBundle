@@ -36,4 +36,15 @@ class CityRepository extends EntityRepository
                 ;
         return $state;
     }
+    
+    function findCitiesByMunicipality($municipalityId) {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+                ->innerJoin('c.municipality', 'm')
+                ->andWhere('c.active = 1')
+                ->andWhere('m.id = :municipality')
+                ->setParameter('municipality', $municipalityId)
+                ;
+        return $qb->getQuery()->getResult();
+    }
 }
