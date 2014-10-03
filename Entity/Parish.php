@@ -223,4 +223,8 @@ class Parish
     {
         return $this->state;
     }
+    
+    public function __toString() {
+        return $this->getDescription()?: '-';
+    }
 }

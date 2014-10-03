@@ -339,4 +339,8 @@ class City
     {
         return $this->municipality;
     }
+    
+    public function __toString() {
+        return $this->getDescription()?: '-';
+    }
 }

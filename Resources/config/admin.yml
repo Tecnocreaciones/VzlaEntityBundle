@@ -1,14 +1,4 @@
 services:
-    sonata.admin.vzla_entity.city:
-        class: Tecnocreaciones\Vzla\EntityBundle\Admin\CityAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.city" }
-        arguments:
-            - ~
-            - Tecnocreaciones\Vzla\EntityBundle\Entity\City
-            - ~
-        calls:
-            - [ setTranslationDomain, [admin]]
     sonata.admin.vzla_entity.country:
         class: Tecnocreaciones\Vzla\EntityBundle\Admin\CountryAdmin
         tags:
@@ -16,6 +6,26 @@ services:
         arguments:
             - ~
             - Tecnocreaciones\Vzla\EntityBundle\Entity\Country
+            - ~
+        calls:
+            - [ setTranslationDomain, [admin]]
+    sonata.admin.vzla_entity.region:
+        class: Tecnocreaciones\Vzla\EntityBundle\Admin\RegionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.region" }
+        arguments:
+            - ~
+            - Tecnocreaciones\Vzla\EntityBundle\Entity\Region
+            - ~
+        calls:
+            - [ setTranslationDomain, [admin]]
+    sonata.admin.vzla_entity.state:
+        class: Tecnocreaciones\Vzla\EntityBundle\Admin\StateAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.state"}
+        arguments:
+            - ~
+            - Tecnocreaciones\Vzla\EntityBundle\Entity\State
             - ~
         calls:
             - [ setTranslationDomain, [admin]]
@@ -39,23 +49,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [admin]]
-    sonata.admin.vzla_entity.region:
-        class: Tecnocreaciones\Vzla\EntityBundle\Admin\RegionAdmin
+    sonata.admin.vzla_entity.city:
+        class: Tecnocreaciones\Vzla\EntityBundle\Admin\CityAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.region" }
+            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.city" }
         arguments:
             - ~
-            - Tecnocreaciones\Vzla\EntityBundle\Entity\Region
-            - ~
-        calls:
-            - [ setTranslationDomain, [admin]]
-    sonata.admin.vzla_entity.state:
-        class: Tecnocreaciones\Vzla\EntityBundle\Admin\StateAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.state"}
-        arguments:
-            - ~
-            - Tecnocreaciones\Vzla\EntityBundle\Entity\State
+            - Tecnocreaciones\Vzla\EntityBundle\Entity\City
             - ~
         calls:
             - [ setTranslationDomain, [admin]]

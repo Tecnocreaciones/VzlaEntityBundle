@@ -17,11 +17,11 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Description of CityAdmin
+ * Admin de ciudades
  *
  * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  */
-class CityAdmin extends Admin
+class CityAdmin extends SimpleBaseAdmin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -58,10 +58,13 @@ class CityAdmin extends Admin
                 'associated_property' => 'description',
                 'class' => 'Tecnocreaciones\Vzla\EntityBundle\Entity\State',
             ))
-            ->add('capital')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('active')
+            ->add('createdAt','datetime',array(
+                'format' => self::FORMAT_DATETIME
+            ))
+            ->add('updatedAt','datetime',array(
+                'format' => self::FORMAT_DATETIME
+            ))
+            ->add('active',null,array('editable' => true))
         ;
     }
 }

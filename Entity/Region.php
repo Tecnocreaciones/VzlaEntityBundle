@@ -267,4 +267,8 @@ class Region
     {
         return $this->states;
     }
+    
+    public function __toString() {
+        return $this->getDescription()?: '-';
+    }
 }

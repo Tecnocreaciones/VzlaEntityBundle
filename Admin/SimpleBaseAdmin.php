@@ -11,43 +11,24 @@
 
 namespace Tecnocreaciones\Vzla\EntityBundle\Admin;
 
+use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Description of CountryAdmin
+ * Base de admin de maestros de venezuela
  *
  * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  */
-class CountryAdmin extends SimpleBaseAdmin
-{
-    // Fields to be shown on create/edit forms
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $formMapper
-            ->add('description')
-            ->add('code')
-            ->add('active')
-        ;
-    }
-
-    // Fields to be shown on filter forms
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper
-            ->add('description')
-            ->add('code')
-            ->add('active')
-        ;
-    }
-
+abstract class SimpleBaseAdmin extends Admin {
+    const FORMAT_DATETIME = 'Y-m-d h:i:s a';
+    
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->addIdentifier('description')
-            ->add('code')
             ->add('createdAt','datetime',array(
                 'format' => self::FORMAT_DATETIME
             ))

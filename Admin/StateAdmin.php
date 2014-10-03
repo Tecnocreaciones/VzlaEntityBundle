@@ -22,7 +22,7 @@ use Sonata\AdminBundle\Form\FormMapper;
  *
  * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  */
-class StateAdmin extends Admin
+class StateAdmin extends SimpleBaseAdmin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -73,8 +73,10 @@ class StateAdmin extends Admin
                 'associated_property' => 'description',
                 'class' => 'Tecnocreaciones\Vzla\EntityBundle\Entity\Country',
             ))
-            ->add('updatedAt')
-            ->add('active')
+            ->add('updatedAt','datetime',array(
+                'format' => self::FORMAT_DATETIME
+            ))
+            ->add('active',null,array('editable' => true))
         ;
     }
 }

@@ -21,7 +21,7 @@ use Sonata\AdminBundle\Form\FormMapper;
  *
  * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  */
-class MunicipalityAdmin extends Admin
+class MunicipalityAdmin extends SimpleBaseAdmin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -58,9 +58,13 @@ class MunicipalityAdmin extends Admin
                 'associated_property' => 'description',
                 'class' => 'Tecnocreaciones\Vzla\EntityBundle\Entity\State',
             ))
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('active')
+            ->add('createdAt','datetime',array(
+                'format' => self::FORMAT_DATETIME
+            ))
+            ->add('updatedAt','datetime',array(
+                'format' => self::FORMAT_DATETIME
+            ))
+            ->add('active',null,array('editable' => true))
         ;
     }
 }
