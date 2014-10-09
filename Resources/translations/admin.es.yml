@@ -1,6 +1,6 @@
 admin:
     group:
-        vzla_entity: Venezuela
+        vzla_entity: Localización
     city: Ciudad
     country: Pais
     municipality: Municipio
