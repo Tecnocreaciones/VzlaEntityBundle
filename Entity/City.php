@@ -68,12 +68,12 @@ class City
     private $state;
     
     /**
-     * Parroquia
+     * Parroquias
      * 
      * @var Parish
-     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish")
+     * @ORM\ManyToMany(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish")
      */
-    private $parish;
+    private $parishes;
     
     /**
      * Municipio
@@ -98,7 +98,10 @@ class City
      * @ORM\Column(name="zipCode", type="integer",nullable=true)
      */
     private $zipCode;
-
+    
+    function __construct(){
+        $this->parishes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -295,29 +298,6 @@ class City
     }
 
     /**
-     * Set parish
-     *
-     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish
-     * @return City
-     */
-    public function setParish(\Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish = null)
-    {
-        $this->parish = $parish;
-
-        return $this;
-    }
-
-    /**
-     * Get parish
-     *
-     * @return \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish 
-     */
-    public function getParish()
-    {
-        return $this->parish;
-    }
-
-    /**
      * Set municipality
      *
      * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Municipality $municipality
@@ -342,5 +322,51 @@ class City
     
     public function __toString() {
         return $this->getDescription()?: '-';
+    }
+
+    /**
+     * Add parishes
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parishes
+     * @return City
+     */
+    public function addParish(\Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parishes)
+    {
+        $this->parishes->add($parishes);
+
+        return $this;
+    }
+
+    /**
+     * Remove parishes
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parishes
+     */
+    public function removeParish(\Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parishes)
+    {
+        $this->parishes->removeElement($parishes);
+    }
+
+    /**
+     * Get parishes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParishes()
+    {
+        return $this->parishes;
+    }
+    
+    /**
+     * Set parish
+     *
+     * @param \Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish
+     * @return City
+     */
+    public function setParish(\Tecnocreaciones\Vzla\EntityBundle\Entity\Parish $parish = null)
+    {
+        $this->addParish($parish);
+
+        return $this;
     }
 }
