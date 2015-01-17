@@ -19,4 +19,7 @@ namespace Tecnocreaciones\Vzla\EntityBundle\Repository;
  */
 class StateRepository extends EntityRepository
 {
+    protected function getAlias() {
+        return 's';
+    }
 }
