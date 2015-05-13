@@ -17,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Country
  *
- * @ORM\Table()
+ * @ORM\Table(name="tecno_vzla_country")
  * @ORM\Entity(repositoryClass="Tecnocreaciones\Vzla\EntityBundle\Repository\CountryRepository")
  */
 class Country

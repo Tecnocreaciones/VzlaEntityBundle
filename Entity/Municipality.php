@@ -17,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Municipality(Municipio)
  *
- * @ORM\Table()
+ * @ORM\Table(name="tecno_vzla_municipality")
  * @ORM\Entity(repositoryClass="Tecnocreaciones\Vzla\EntityBundle\Repository\MunicipalityRepository")
  */
 class Municipality

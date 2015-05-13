@@ -17,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Parish(Parroquia)
  *
- * @ORM\Table()
+ * @ORM\Table(name="tecno_vzla_parish")
  * @ORM\Entity(repositoryClass="Tecnocreaciones\Vzla\EntityBundle\Repository\ParishRepository")
  */
 class Parish
