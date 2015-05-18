@@ -72,6 +72,7 @@ class City
      * 
      * @var Parish
      * @ORM\ManyToMany(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish")
+     * @ORM\JoinTable(name="tecno_vzla_city_parish")
      */
     private $parishes;
     
