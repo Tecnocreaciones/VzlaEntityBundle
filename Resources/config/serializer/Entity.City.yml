@@ -3,16 +3,16 @@ Tecnocreaciones\Vzla\EntityBundle\Entity\City:
     properties:
         id:
             expose: true
-            groups: [list,show,state]
+            groups: [list]
         description:
             expose: true
-            groups: [list,show,state]
+            groups: [list]
         capital:
             expose: true
-            groups: [list,show,state]
+            groups: [list]
         active:
             expose: true
-            groups: [list,show,state]
+            groups: [list]
         state:
             expose: true
-            groups: [list,show]
+            groups: [api_state]
