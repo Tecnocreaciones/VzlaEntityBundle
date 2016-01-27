@@ -41,7 +41,7 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=20)
+     * @ORM\Column(name="code", type="string", length=20,nullable=true)
      */
     private $code;
 
