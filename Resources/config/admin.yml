@@ -59,3 +59,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [admin]]
+    sonata.admin.vzla_entity.urbanization:
+        class: Tecnocreaciones\Vzla\EntityBundle\Admin\UrbanizationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "admin.group.vzla_entity",label_catalogue: "admin", label: "admin.urbanization" }
+        arguments:
+            - ~
+            - Tecnocreaciones\Vzla\EntityBundle\Entity\Urbanization
+            - ~
+        calls:
+            - [ setTranslationDomain, [admin]]

@@ -28,6 +28,7 @@ class CityAdmin extends SimpleBaseAdmin
     {
         $formMapper
             ->add('description')
+            ->add('municipality')
             ->add('state', 'entity', array(
                 'property' => 'description',
                 'class' => 'Tecnocreaciones\Vzla\EntityBundle\Entity\State',
@@ -58,6 +59,7 @@ class CityAdmin extends SimpleBaseAdmin
                 'associated_property' => 'description',
                 'class' => 'Tecnocreaciones\Vzla\EntityBundle\Entity\State',
             ))
+            ->add('municipality')
             ->add('createdAt','datetime',array(
                 'format' => self::FORMAT_DATETIME
             ))

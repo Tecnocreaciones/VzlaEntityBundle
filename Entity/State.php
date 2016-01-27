@@ -44,7 +44,7 @@ class State
      * @see http://es.wikipedia.org/wiki/ISO_3166-2
      * @var string 
      *
-     * @ORM\Column(name="code", type="string", length=5)
+     * @ORM\Column(name="code", type="string", length=5,nullable=true)
      */
     private $code;
 
