@@ -28,10 +28,14 @@ class EntityRepository extends BaseEntityRepository
         return $this->findBy(array('active' => false));
     }
     
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     function getQueryAllActive() {
-        $qb = $this->createQueryBuilder('e');
+        $a = $this->getAlias();
+        $qb = $this->createQueryBuilder($a);
         $qb
-                ->andWhere('e.active = :active')
+                ->andWhere($a.'.active = :active')
                 ->setParameter('active', true);
         return $qb;
     }

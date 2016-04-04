@@ -15,13 +15,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Urbanizacion o sector
+ * Codigo postal
  *
  * @author Carlos Mendoza <inhack20@gmail.com>
- * @ORM\Table(name="tecno_vzla_urbanization")
- * @ORM\Entity(repositoryClass="Tecnocreaciones\Vzla\EntityBundle\Repository\UrbanizationRepository")
+ * @ORM\Table(name="tecno_vzla_postal_code")
+ * @ORM\Entity(repositoryClass="Tecnocreaciones\Vzla\EntityBundle\Repository\PostalCodeRepository")
  */
-class Urbanization
+class PostalCode 
 {
     /**
      * @var integer
@@ -38,7 +38,7 @@ class Urbanization
      * @ORM\Column(name="description", type="string", length=100)
      */
     private $description;
-    
+
     /**
      * @var boolean
      *
@@ -62,22 +62,7 @@ class Urbanization
      */
     private $updatedAt;
     
-    /**
-     * Ciudad
-     * @var City
-     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\City")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $city;
     
-    /**
-     * Codigo postal
-     * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\PostalCode
-     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\PostalCode")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $postalCode;
-
     public function getId() {
         return $this->id;
     }
@@ -98,6 +83,11 @@ class Urbanization
         return $this->updatedAt;
     }
 
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
     public function setDescription($description) {
         $this->description = $description;
         return $this;
@@ -116,27 +106,5 @@ class Urbanization
     public function setUpdatedAt(\DateTime $updatedAt) {
         $this->updatedAt = $updatedAt;
         return $this;
-    }
-
-    public function getCity() {
-        return $this->city;
-    }
-
-    public function setCity(City $city) {
-        $this->city = $city;
-        return $this;
-    }
-
-    public function getPostalCode() {
-        return $this->postalCode;
-    }
-
-    public function setPostalCode(\Tecnocreaciones\Vzla\EntityBundle\Entity\PostalCode $postalCode) {
-        $this->postalCode = $postalCode;
-        return $this;
-    }
-
-    public function __toString() {
-        return $this->getDescription()?:"-";
     }
 }
