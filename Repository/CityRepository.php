@@ -36,7 +36,9 @@ class CityRepository extends EntityRepository
                 ;
         return $state;
     }
-    
+    /**
+     * Retorna las ciudades por el municipio
+     */
     function findCitiesByMunicipality($municipalityId) {
         $qb = $this->createQueryBuilder('c');
         $qb
@@ -46,5 +48,22 @@ class CityRepository extends EntityRepository
                 ->setParameter('municipality', $municipalityId)
                 ;
         return $qb->getQuery()->getResult();
+    }
+    /**
+     * Retorna las ciudades por la parroquia
+     */
+    function findCitiesByParish($parishId) {
+        $qb = $this->getQueryAllActive();
+        $qb
+                ->innerJoin('c.parishes', 'c_p')
+                ->andWhere('c_p.id = :parish')
+                ->setParameter('parish', $parishId)
+                ;
+            $this->addSort($qb);
+        return $qb->getQuery()->getResult();
+    }
+    
+    protected function getAlias() {
+        return "c";
     }
 }

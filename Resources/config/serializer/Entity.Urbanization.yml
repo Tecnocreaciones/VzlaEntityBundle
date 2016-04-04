@@ -1,0 +1,9 @@
+Tecnocreaciones\Vzla\EntityBundle\Entity\Urbanization:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: [list]
+        description:
+            expose: true
+            groups: [list]

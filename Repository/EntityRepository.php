@@ -39,4 +39,8 @@ class EntityRepository extends BaseEntityRepository
                 ->setParameter('active', true);
         return $qb;
     }
+    
+    protected function addSort(\Doctrine\ORM\QueryBuilder $qb,$field = "description") {
+        $qb->orderBy($this->getAlias().".".$field,"ASC");
+    }
 }
