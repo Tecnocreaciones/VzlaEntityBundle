@@ -71,6 +71,15 @@ class Urbanization
     private $city;
     
     /**
+     * Parroquia
+     * 
+     * @var Parish
+     * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\Parish")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $parish;
+    
+    /**
      * Codigo postal
      * @var \Tecnocreaciones\Vzla\EntityBundle\Entity\PostalCode
      * @ORM\ManyToOne(targetEntity="Tecnocreaciones\Vzla\EntityBundle\Entity\PostalCode")
@@ -136,6 +145,15 @@ class Urbanization
         return $this;
     }
 
+    public function getParish() {
+        return $this->parish;
+    }
+
+    public function setParish(Parish $parish) {
+        $this->parish = $parish;
+        return $this;
+    }
+        
     public function __toString() {
         return $this->getDescription()?:"-";
     }

@@ -92,14 +92,6 @@ class City
      */
     private $areaCode;
 
-    /**
-     * Codigo postal
-     * 
-     * @var integer
-     * @ORM\Column(name="zipCode", type="integer",nullable=true)
-     */
-    private $zipCode;
-    
     function __construct(){
         $this->parishes = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -273,29 +265,6 @@ class City
     public function getAreaCode()
     {
         return $this->areaCode;
-    }
-
-    /**
-     * Set zipCode
-     *
-     * @param integer $zipCode
-     * @return City
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
-
-        return $this;
-    }
-
-    /**
-     * Get zipCode
-     *
-     * @return integer 
-     */
-    public function getZipCode()
-    {
-        return $this->zipCode;
     }
 
     /**

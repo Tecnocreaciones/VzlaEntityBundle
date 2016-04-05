@@ -18,9 +18,15 @@ namespace Tecnocreaciones\Vzla\EntityBundle\Repository;
  */
 class UrbanizationRepository extends EntityRepository 
 {
-    public function getUrbanizationByCity($cityId)
+    public function getUrbanizationByCity($cityId,$parishId)
     {
-        return $this->findQueryByCity($cityId)->getQuery()->getResult();
+        $qb = $this->findQueryByCity($cityId);
+        $qb
+            ->innerJoin("u.parish","u_p")
+            ->andWhere("u_p.id = :parish")
+            ->setParameter("parish", $parishId)
+            ;
+        return $qb->getQuery()->getResult();
     }
     public function findQueryByCity($cityId) {
         $qb = $this->getQueryAllActive();
