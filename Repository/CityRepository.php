@@ -53,6 +53,12 @@ class CityRepository extends EntityRepository
      * Retorna las ciudades por la parroquia
      */
     function findCitiesByParish($parishId) {
+        return $this->findQueryCitiesByParish($parishId)->getQuery()->getResult();
+    }
+    /**
+     * Retorna las ciudades por la parroquia
+     */
+    function findQueryCitiesByParish($parishId) {
         $qb = $this->getQueryAllActive();
         $qb
                 ->innerJoin('c.parishes', 'c_p')
@@ -60,7 +66,7 @@ class CityRepository extends EntityRepository
                 ->setParameter('parish', $parishId)
                 ;
             $this->addSort($qb);
-        return $qb->getQuery()->getResult();
+        return $qb;
     }
     
     protected function getAlias() {

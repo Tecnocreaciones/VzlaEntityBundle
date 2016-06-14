@@ -19,8 +19,7 @@ namespace Tecnocreaciones\Vzla\EntityBundle\Repository;
  */
 class ParishRepository extends EntityRepository
 {
-    public function findByMunicipality($municipality) 
-    {
+    public function findQueryByMunicipality($municipality){
         $qb = $this->getQueryAllActive();
         $qb
             ->innerJoin("p.municipality","p_m")
@@ -28,7 +27,11 @@ class ParishRepository extends EntityRepository
             ->setParameter("municipality", $municipality)
             ;
             $this->addSort($qb);
-        return $qb->getQuery()->getResult();
+        return $qb;
+    }
+    public function findByMunicipality($municipality) 
+    {
+        return $this->findQueryByMunicipality($municipality)->getQuery()->getResult();
     }
     
     protected function getAlias() {
