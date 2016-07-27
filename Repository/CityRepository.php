@@ -66,7 +66,7 @@ class CityRepository extends \Coramer\Sigtec\WebBundle\Repository\Model\MasterEn
                 ->andWhere('c_p.id = :parish')
                 ->setParameter('parish', $parishId)
                 ;
-            $this->addSort($qb);
+          //  $this->addSort($qb);
         return $qb;
     }
     
